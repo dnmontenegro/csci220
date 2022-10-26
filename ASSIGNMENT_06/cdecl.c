@@ -148,11 +148,27 @@ deal_with_any_pointers()
 deal_with_declarator()
 {
   // if this.type is '[' deal_with_arrays
+  if(this.type == '[')
+    deal_with_arrays();
   // if this.type is '(' deal_with_function_args
+  if(this.type == '(')
+    deal_with_function_args();
   // deal_with_any_pointers
+  deal_with_any_pointers();
   // while there's stuff on the stack
+  while(top >= 0)
+  {
   // if it's a '('
+    if(stack[top].type == '(')
+    {
   // pop it and gettoken; it should be the closing ')'
+      stack[top--];
+      gettoken();
   // deal_with_declarator
+     deal_with_delcarator();
+    }
   // else pop it and print it
+    else
+      printf("%s ", stack[top--].string);
+  }
 }
