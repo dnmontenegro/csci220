@@ -21,7 +21,7 @@ enum string_class classify_string(void);
 
 void gettoken(void);
 
-read_to_first_identifier
+read_to_first_identifier();
 
 deal_with_function_args
 
@@ -90,10 +90,12 @@ void gettoken(void)
   return;
 }
 
-read_to_first_identifier
+read_to_first_identifier()
+{
   // gettoken and push it onto the stack until the first identifer is read
   // Print "identifier is", this.string
   // gettoken
+}
 
 deal_with_function_args
   // read past closing ')' print out "function returning"
