@@ -76,9 +76,18 @@ enum string_class classify_string(void)
 void gettoken(void)
 {
   // read the next token into this.string
+  char *next_token = this.string;
   // if it is alphanumeric, classify_string
+  if(isalnum(*next_token))
+  {
+    this.type = classify_string();
+    return;
+  }
   // else it must be a single character token
   // this.type = the token itself; terminate this.string with a nul
+  this.type = *next_token;
+  this.string[1] = '\0';
+  return;
 }
 
 read_to_first_identifier
