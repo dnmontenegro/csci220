@@ -10,7 +10,14 @@ struct token stack[MAXTOKENS];
 // holds the token just read
 struct token;
 
-classify_string
+enum string_class
+{
+  type,
+  qualifier,
+  identifier
+} 
+
+enum string_class classify_string(void);
 
 gettoken
 
@@ -28,9 +35,11 @@ main
   // read_to_first_identifier
   // deal_with_declarator
 
-classify_string
+enum string_class classify_string(void)
+{
  // look at the current token and 
  // return a value of "type", "qualifier", or "identifier" in this.type
+}
 
 gettoken
   // read the next token into this.string
