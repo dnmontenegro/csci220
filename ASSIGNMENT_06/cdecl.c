@@ -23,7 +23,8 @@ enum string_class
 {
   type,
   qualifier,
-  identifier
+  identifier,
+  type_def
 }; 
 
 enum string_class classify_string(void);
@@ -79,12 +80,17 @@ enum string_class classify_string(void)
     return type;
   if(!strcmp(token, "enum"))
     return type;
-  if(!strcmp(token, "const"))
+  if(!strcmp(token, "const")) 
+  {
+    strcpy(token, "read-only");
     return qualifier;
+  }
   if(!strcmp(token, "volatile"))
     return qualifier;
   if(!strcmp(token, "restrict"))
     return qualifier;
+  if(!strcmp(token, "typedef"))
+    return type_def;
   return identifier;
 }
 
@@ -117,8 +123,10 @@ void read_to_first_identifier()
   // gettoken and push it onto the stack until the first identifer is read
   gettoken();
   while(this.type != identifier) 
-  {
+  { 
     stack[++top] = this;
+    if(this.type == type_def)
+      stack[--top];
     gettoken(); 
   }
   // Print "identifier is", this.string
@@ -178,6 +186,7 @@ void deal_with_declarator()
   // while there's stuff on the stack
   while(top >= 0)
   {
+    deal_with_any_pointers();
   // if it's a '('
     if(stack[top].type == '(')
     {
