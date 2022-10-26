@@ -25,7 +25,7 @@ void gettoken(void);
 
 read_to_first_identifier();
 
-deal_with_function_args
+deal_with_function_args();
 
 deal_with_arrays
 
@@ -107,8 +107,10 @@ read_to_first_identifier()
   gettoken();
 }
 
-deal_with_function_args
+deal_with_function_args()
+{
   // read past closing ')' print out "function returning"
+}
 
 deal_with_arrays
   // while you've got "[size]" print it out and read past it
