@@ -1,3 +1,10 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+#define MAXTOKENLEN 100
+#define MAXTOKENS 150
+
 struct token 
 { 
   char type;
@@ -10,28 +17,28 @@ struct token stack[MAXTOKENS];
 int top = -1;
 
 // holds the token just read
-struct token;
+struct token this;
 
 enum string_class
 {
   type,
   qualifier,
   identifier
-} 
+}; 
 
 enum string_class classify_string(void);
 
 void gettoken(void);
 
-read_to_first_identifier();
+void read_to_first_identifier();
 
-deal_with_function_args();
+void deal_with_function_args();
 
-deal_with_arrays();
+void deal_with_arrays();
 
-deal_with_any_pointers();
+void deal_with_any_pointers();
 
-deal_with_declarator();
+void deal_with_declarator();
 
 int main()
 {
@@ -85,9 +92,16 @@ void gettoken(void)
 {
   // read the next token into this.string
   char *next_token = this.string;
+  do
+  {
+    *next_token = getchar();
+  } while(*next_token == ' ');
   // if it is alphanumeric, classify_string
   if(isalnum(*next_token))
   {
+    while(isalnum(*++next_token = getchar()));
+    ungetc(*next_token, stdin);
+    *next_token = '\0';
     this.type = classify_string();
     return;
   }
@@ -98,7 +112,7 @@ void gettoken(void)
   return;
 }
 
-read_to_first_identifier()
+void read_to_first_identifier()
 {
   // gettoken and push it onto the stack until the first identifer is read
   gettoken();
@@ -108,12 +122,12 @@ read_to_first_identifier()
     gettoken(); 
   }
   // Print "identifier is", this.string
-  printf("identifier is %s ", this.string);
+  printf("%s is ", this.string);
   // gettoken
   gettoken();
 }
 
-deal_with_function_args()
+void deal_with_function_args()
 {
   // read past closing ')' print out "function returning"
   while(this.type != ')')
@@ -124,7 +138,7 @@ deal_with_function_args()
   printf("function returning ");
 }
 
-deal_with_arrays()
+void deal_with_arrays()
 {
   // while you've got "[size]" print it out and read past it
   while(this.type == '[')
@@ -141,17 +155,17 @@ deal_with_arrays()
   }
 }
 
-deal_with_any_pointers()
+void deal_with_any_pointers()
 {
   // while you've got "*" on the stack print "pointer to" and pop it
   while(stack[top].type == '*')
   {
-    printf("pointer to ")
+    printf("pointer to ");
     stack[top--];
   }
 }
 
-deal_with_declarator()
+void deal_with_declarator()
 {
   // if this.type is '[' deal_with_arrays
   if(this.type == '[')
@@ -171,7 +185,7 @@ deal_with_declarator()
       stack[top--];
       gettoken();
   // deal_with_declarator
-     deal_with_delcarator();
+      deal_with_declarator();
     }
   // else pop it and print it
     else
