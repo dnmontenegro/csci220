@@ -27,7 +27,7 @@ read_to_first_identifier();
 
 deal_with_function_args();
 
-deal_with_arrays
+deal_with_arrays();
 
 deal_with_any_pointers
 
@@ -118,8 +118,10 @@ deal_with_function_args()
   printf("function returning ");
 }
 
-deal_with_arrays
+deal_with_arrays()
+{
   // while you've got "[size]" print it out and read past it
+}
 
 deal_with_any_pointers
   // while you've got "*" on the stack print "pointer to" and pop it
