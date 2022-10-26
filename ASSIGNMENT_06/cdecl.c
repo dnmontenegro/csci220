@@ -31,7 +31,7 @@ deal_with_arrays();
 
 deal_with_any_pointers();
 
-deal_with_declarator
+deal_with_declarator();
 
 main
   // read_to_first_identifier
@@ -145,7 +145,8 @@ deal_with_any_pointers()
   }
 }
 
-deal_with_declarator
+deal_with_declarator()
+{
   // if this.type is '[' deal_with_arrays
   // if this.type is '(' deal_with_function_args
   // deal_with_any_pointers
@@ -154,4 +155,4 @@ deal_with_declarator
   // pop it and gettoken; it should be the closing ')'
   // deal_with_declarator
   // else pop it and print it
-
+}
