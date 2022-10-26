@@ -29,7 +29,7 @@ deal_with_function_args();
 
 deal_with_arrays();
 
-deal_with_any_pointers
+deal_with_any_pointers();
 
 deal_with_declarator
 
@@ -135,8 +135,10 @@ deal_with_arrays()
   }
 }
 
-deal_with_any_pointers
+deal_with_any_pointers()
+{
   // while you've got "*" on the stack print "pointer to" and pop it
+}
 
 deal_with_declarator
   // if this.type is '[' deal_with_arrays
