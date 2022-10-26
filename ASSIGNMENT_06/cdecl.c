@@ -37,8 +37,40 @@ main
 
 enum string_class classify_string(void)
 {
- // look at the current token and 
- // return a value of "type", "qualifier", or "identifier" in this.type
+  // look at the current token and 
+  char *token = this.string;
+  // return a value of "type", "qualifier", or "identifier" in this.type
+  if(!strcmp(token, "char"))
+    return type;
+  if(!strcmp(token, "unsigned"))
+    return type;
+  if(!strcmp(token, "signed"))
+    return type;
+  if(!strcmp(token, "int"))
+    return type;
+  if(!strcmp(token, "short"))
+    return type;
+  if(!strcmp(token, "long"))
+    return type;
+  if(!strcmp(token, "float"))
+    return type;
+  if(!strcmp(token, "double"))
+    return type;
+  if(!strcmp(token, "void"))
+    return type;
+  if(!strcmp(token, "struct"))
+    return type;
+  if(!strcmp(token, "union"))
+    return type;
+  if(!strcmp(token, "enum"))
+    return type;
+  if(!strcmp(token, "const"))
+    return qualifier;
+  if(!strcmp(token, "volatile"))
+    return qualifier;
+  if(!strcmp(token, "restrict"))
+    return qualifier;
+  return identifier;
 }
 
 gettoken
