@@ -138,6 +138,11 @@ deal_with_arrays()
 deal_with_any_pointers()
 {
   // while you've got "*" on the stack print "pointer to" and pop it
+  while(stack[top].type == '*')
+  {
+    printf("pointer to ")
+    stack[top--];
+  }
 }
 
 deal_with_declarator
