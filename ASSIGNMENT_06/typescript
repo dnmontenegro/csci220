@@ -1,0 +1,35 @@
+Script started on 2022-10-26 14:09:14-04:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="120" LINES="30"]
+dnmontenegro@th121-23:~/public_html/lbp/life/ASSIGNMENT_06$ exit./a.out
+int argc;
+argc is int 
+dnmontenegro@th121-23:~/public_html/lbp/life/ASSIGNMENT_06$ ./a.out
+char *argv[];
+argv is array of pointer to char 
+dnmontenegro@th121-23:~/public_html/lbp/life/ASSIGNMENT_06$ ./a.out
+char *argv();
+argv is function returning pointer to char 
+dnmontenegro@th121-23:~/public_html/lbp/life/ASSIGNMENT_06$ ./a.out
+char (*j)[20];
+j is pointer to array with size 20 of char 
+dnmontenegro@th121-23:~/public_html/lbp/life/ASSIGNMENT_06$ ./a.out
+const int *g  grape;
+grape is pointer to int read-only 
+dnmontenegro@th121-23:~/public_html/lbp/life/ASSIGNMENT_06$ ./a.out
+int * const grape;
+grape is read-only pointer to int 
+dnmontenegro@th121-23:~/public_html/lbp/life/ASSIGNMENT_06$ ./a.out
+const int * const grape;
+grape is read-only pointer to int read-only 
+dnmontenegro@th121-23:~/public_html/lbp/life/ASSIGNMENT_06$ ./a.out
+char* const *) (*next)();
+next is pointer to function returning pointer to read-only pointer to char 
+dnmontenegro@th121-23:~/public_html/lbp/life/ASSIGNMENT_06$ ./a.out
+char *(*c[10])(int ((  **p);
+c is array with size 10 of pointer to function returning pointer to char 
+dnmontenegro@th121-23:~/public_html/lbp/life/ASSIGNMENT_06$ ./a.out
+typedef struct Perceptron *Perceptron;
+Perceptron is struct 
+dnmontenegro@th121-23:~/public_html/lbp/life/ASSIGNMENT_06$ exit
+exit
+
+Script done on 2022-10-26 14:11:01-04:00 [COMMAND_EXIT_CODE="0"]
