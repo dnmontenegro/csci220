@@ -33,9 +33,13 @@ deal_with_any_pointers();
 
 deal_with_declarator();
 
-main
+main()
+{
   // read_to_first_identifier
+  read_to_first_identifier();
   // deal_with_declarator
+  deal_with_declarator();
+}
 
 enum string_class classify_string(void)
 {
