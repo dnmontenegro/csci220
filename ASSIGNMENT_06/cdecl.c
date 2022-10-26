@@ -110,6 +110,12 @@ read_to_first_identifier()
 deal_with_function_args()
 {
   // read past closing ')' print out "function returning"
+  while(this.type != ')')
+  {
+    gettoken();
+  }
+  gettoken();
+  printf("function returning ");
 }
 
 deal_with_arrays
