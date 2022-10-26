@@ -19,7 +19,7 @@ enum string_class
 
 enum string_class classify_string(void);
 
-gettoken
+void gettoken(void);
 
 read_to_first_identifier
 
@@ -73,11 +73,13 @@ enum string_class classify_string(void)
   return identifier;
 }
 
-gettoken
+void gettoken(void)
+{
   // read the next token into this.string
   // if it is alphanumeric, classify_string
   // else it must be a single character token
   // this.type = the token itself; terminate this.string with a nul
+}
 
 read_to_first_identifier
   // gettoken and push it onto the stack until the first identifer is read
