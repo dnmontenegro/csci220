@@ -102,7 +102,7 @@ read_to_first_identifier()
     gettoken(); 
   }
   // Print "identifier is", this.string
-  printf("%s is ", this.string);
+  printf("identifier is %s ", this.string);
   // gettoken
   gettoken();
 }
@@ -121,6 +121,18 @@ deal_with_function_args()
 deal_with_arrays()
 {
   // while you've got "[size]" print it out and read past it
+  while(this.type == '[')
+  {
+    printf("array ");
+    gettoken();
+    if(isdigit(*this.string))
+    {
+      printf("with size %s ", this.string);
+      gettoken();
+    }
+    printf("of ");
+    gettoken();
+  }
 }
 
 deal_with_any_pointers
