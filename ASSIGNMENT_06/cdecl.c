@@ -7,6 +7,8 @@ struct token
 // holds tokens we read before reaching first identifier
 struct token stack[MAXTOKENS];
 
+int top = -1;
+
 // holds the token just read
 struct token;
 
@@ -93,8 +95,16 @@ void gettoken(void)
 read_to_first_identifier()
 {
   // gettoken and push it onto the stack until the first identifer is read
+  gettoken();
+  while(this.type != identifier) 
+  {
+    stack[++top] = this;
+    gettoken(); 
+  }
   // Print "identifier is", this.string
+  printf("%s is ", this.string);
   // gettoken
+  gettoken();
 }
 
 deal_with_function_args
