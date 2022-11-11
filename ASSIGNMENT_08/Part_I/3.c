@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int array[1000];
+int array[1000] = {1}; 
 
 int main()
 {
