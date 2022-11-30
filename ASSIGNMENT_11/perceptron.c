@@ -22,6 +22,7 @@ struct model {
 Data new_Data(const char *fname)
 {
     Data data = (Data) malloc(sizeof(Data));
+
     FILE *fp;
     char ch;
     int lines = 0;
@@ -36,22 +37,24 @@ Data new_Data(const char *fname)
     rewind(fp);
     fclose(fp);
     data->shape.number_of_examples = lines;
-    printf("%d\n", data->shape.number_of_examples);
     data->shape.number_of_features = 2;
-    printf("%d\n", data->shape.number_of_features);
+
     data->inputs = malloc(data->shape.number_of_features * sizeof(double*));
     for(int i = 0; i < data->shape.number_of_features; i++)
 	data->inputs[i] = malloc(data->shape.number_of_examples * sizeof(double));
     data->targets = (int*) malloc(data->shape.number_of_examples * sizeof(int));
+    double* temp = (double*) malloc(data->shape.number_of_examples * sizeof(double));
+
     if ((fp = fopen(fname, "r")) == NULL)  {
         fprintf(stderr, "load_data: can't open %s\n", fname);
         exit(1);
     }
     int i = 0;
-    printf("hello, there3\n");
-    while (fscanf(fp, "%lf %lf %lf", &(data->inputs[0][i]), &(data->inputs[1][i]), (int)&(data->targets[i])) != EOF)
+    while (fscanf(fp, "%lf %lf %lf", &(data->inputs[0][i]), &(data->inputs[1][i]), &(temp[i])) != EOF)
 	i++;
     fclose(fp);
+    for(int i = 0; i < data->shape.number_of_examples; i++)
+	data->targets[i] = (int) temp[i];
     fprintf(stdout, "load_data: loaded %d examples\n", i);
     return data;
 }
@@ -63,7 +66,6 @@ Model new_Model(const Data data)
     model->weights = (double*) malloc(model->shape.DIMENSIONS * sizeof(double));
     for (int i = 0; i < model->shape.DIMENSIONS; i++)
 	model->weights[i] = (double) rand() / RAND_MAX;
-    printf("hello, there4\n");
     return model;
 }
 
@@ -86,21 +88,17 @@ void fit_model(Model model, Data data)
     double hypothesis, target;
    
     bool misclassified = true;
-    printf("hello, there5\n");
     while (misclassified) {
         misclassified = false;
         for (int i = 0; i < data->shape.number_of_examples; i++) {
 	    data->shape.number_of_features = i;
             hypothesis = predict(model, data);
             target = data->targets[i];
-	    printf("%f\n", hypothesis);
-	    printf("%f\n", target);
             if ((hypothesis > 0 && target > 0) || (hypothesis < 0 && target < 0)) // TODO Handle 0
                 continue;
             sgd(model, data);  // Update weights using misclassified point
             misclassified = true;
         }
-        misclassified = false;
     }
 }
 
@@ -113,7 +111,13 @@ void run_scoring_engine(Model model)
 
     printf("Enter y: \n");
     scanf("%lf", &y);
-   // Data data = (Data) malloc(sizeof(Data));
 
-    //printf("Prediction = %d\n", predict(model, data));
+    struct data *point;
+    point->inputs = malloc(2 * sizeof(double*));
+    for(int i = 0; i < 2; i++)
+	point->inputs[i] = malloc(1 * sizeof(double));
+    point->inputs[0][0] = x;
+    point->inputs[1][0] = y;
+    point->shape.number_of_features = 0;
+    printf("Prediction = %d\n", predict(model, (Data)point));
 }
