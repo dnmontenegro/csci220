@@ -1,0 +1,24 @@
+/home/mgwhite/homescratch/linux/kernel/bpf/verifier.c:typedef int (*set_callee_state_fn)(struct bpf_verifier_env *env,
+/home/mgwhite/homescratch/linux/kernel/cfi.c:typedef u16 shadow_t;
+/home/mgwhite/homescratch/linux/kernel/cfi.c:typedef void (*update_shadow_fn)(struct cfi_shadow *, struct module *,
+/home/mgwhite/homescratch/linux/kernel/cgroup/cpuset.c:typedef enum {
+/home/mgwhite/homescratch/linux/kernel/cgroup/cpuset.c:typedef enum {
+/home/mgwhite/homescratch/linux/kernel/debug/kdb/kdb_main.c:typedef struct _kdbmsg {
+/home/mgwhite/homescratch/linux/kernel/dma/debug.c:typedef bool (*match_fn)(struct dma_debug_entry *, struct dma_debug_entry *);
+/home/mgwhite/homescratch/linux/kernel/events/core.c:typedef int (*remote_function_f)(void *);
+/home/mgwhite/homescratch/linux/kernel/events/core.c:typedef void (*event_f)(struct perf_event *, struct perf_cpu_context *,
+/home/mgwhite/homescratch/linux/kernel/events/core.c:typedef void (perf_iterate_f)(struct perf_event *event, void *data);
+/home/mgwhite/homescratch/linux/kernel/gcov/clang.c:typedef void (*llvm_gcov_callback)(void);
+/home/mgwhite/homescratch/linux/kernel/locking/lockdep.c:typedef int (*check_usage_f)(struct task_struct *, struct held_lock *,
+/home/mgwhite/homescratch/linux/kernel/sched/rt.c:typedef struct rt_rq *rt_rq_iter_t;
+/home/mgwhite/homescratch/linux/kernel/sched/rt.c:typedef struct task_group *rt_rq_iter_t;
+/home/mgwhite/homescratch/linux/kernel/trace/blktrace.c:typedef void (blk_log_action_t) (struct trace_iterator *iter, const char *act,
+/home/mgwhite/homescratch/linux/kernel/trace/ring_buffer.c:typedef struct rb_time_struct rb_time_t;
+/home/mgwhite/homescratch/linux/kernel/trace/trace_event_perf.c:typedef typeof(unsigned long [PERF_MAX_TRACE_SIZE / sizeof(unsigned long)])
+/home/mgwhite/homescratch/linux/kernel/trace/trace_events_filter.c:typedef int (*parse_pred_fn)(const char *str, void *data, int pos,
+/home/mgwhite/homescratch/linux/kernel/trace/trace_events_hist.c:typedef bool (*check_track_val_fn_t) (u64 track_val, u64 var_val);
+/home/mgwhite/homescratch/linux/kernel/trace/trace_events_hist.c:typedef u64 (*hist_field_fn_t) (struct hist_field *field,
+/home/mgwhite/homescratch/linux/kernel/trace/trace_events_hist.c:typedef void (*action_fn_t) (struct hist_trigger_data *hist_data,
+/home/mgwhite/homescratch/linux/kernel/trace/trace_events_hist.c:typedef void (*synth_probe_func_t) (void *__data, u64 *var_ref_vals,
+/home/mgwhite/homescratch/linux/kernel/trace/trace_events_user.c:typedef void (*user_event_func_t) (struct user_event *user, struct iov_iter *i,
+/home/mgwhite/homescratch/linux/kernel/trace/trace_uprobe.c:typedef bool (*filter_func_t)(struct uprobe_consumer *self,
